@@ -1,18 +1,17 @@
 from datetime import date
-from gasto import Gasto
+from entidades.gasto import Gasto
 
 class Viaje:
-    def __init__(self, pais: str, fecha_inicio: date, fecha_fin: date,
-                 presupuesto_diario: float, moneda_iso: str):
-        self.__pais: str
-        self.__fecha_inicio: date
-        self.__fecha_fin: date
-        self.__presupuesto_diario: float
-        self.__moneda_iso: str
+    def __init__(self, pais, fecha_inicio, fecha_fin, presupuesto_diario, moneda_iso):
+        self.__pais: str = pais
+        self.__fecha_inicio: date = fecha_inicio
+        self.__fecha_fin: date = fecha_fin
+        self.__presupuesto_diario: float = presupuesto_diario
+        self.__moneda_iso: str = moneda_iso
         self.__gastos = []
 
-    def esta_activo(self):
-        if ((self.__fecha_inicio < date.today) and (self.__fecha_fin > date.today)):
+    def esta_activo(self, fecha):
+        if self.__fecha_inicio < fecha < self.__fecha_fin:
             return True
         else:
             return False
@@ -22,6 +21,9 @@ class Viaje:
         
     def get_moneda(self):
         return self.__moneda_iso
+    
+    def get_gastos(self):
+        return self.__gastos
     
     def guardar_gasto(self, gasto: Gasto):
         self.__gastos.append(gasto)

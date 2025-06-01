@@ -1,6 +1,7 @@
 from datetime import date
-from tipo_gasto import TipoGasto
-from forma_pago import FormaPago
+from entidades.tipo_gasto import TipoGasto
+from entidades.forma_pago import FormaPago
+
 
 class Gasto:
     def __init__(self, fecha, valor, forma_pago, tipo_gasto):
@@ -14,4 +15,10 @@ class Gasto:
     
     def get_fecha(self):
         return self.__fecha
+    
+    def get_forma_pago(self):
+        return self.__forma_pago
+    
+    def get_tipo_gasto(self):
+        return self.__tipo_gasto
     
