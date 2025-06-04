@@ -115,12 +115,7 @@ class ControlViaje:
 
             resumen[fecha][forma_pago.name] += valor
 
-        for fecha, valores in resumen.items():
-            total = valores["EFECTIVO"] + valores["TARJETA"]
-            print(f"Fecha: {fecha}")
-            print(f"  Efectivo: {valores['EFECTIVO']}")
-            print(f"  Tarjeta: {valores['TARJETA']}")
-            print(f"  Total: {total}")
+        return resumen
 
     def mostrar_gastos_por_tipo(self, viaje: Viaje):
         """
@@ -141,9 +136,4 @@ class ControlViaje:
 
             resumen[tipo][forma_pago.name] += valor
 
-        for tipo, valores in resumen.items():
-            total = valores["EFECTIVO"] + valores["TARJETA"]
-            print(f"Tipo de gasto: {tipo.name}")
-            print(f"  Efectivo: {valores['EFECTIVO']}")
-            print(f"  Tarjeta: {valores['TARJETA']}")
-            print(f"  Total: {total}")
+        return resumen

@@ -11,7 +11,7 @@ class Viaje:
         self.__gastos = []
 
     def esta_activo(self, fecha):
-        if self.__fecha_inicio < fecha < self.__fecha_fin:
+        if (self.__fecha_inicio <= fecha) and (fecha <= self.__fecha_fin):
             return True
         else:
             return False
