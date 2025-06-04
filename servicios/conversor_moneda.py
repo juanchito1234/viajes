@@ -11,8 +11,8 @@ class ConversorMoneda:
     """
     Clase para convertir monedas y obtener tasas de cambio en fechas específicas.
     """
-
-    def obtener_tasa_cambio(self, fecha: date, moneda_origen: str, moneda_destino: str) -> float:
+    @staticmethod
+    def obtener_tasa_cambio(fecha: date, moneda_origen: str, moneda_destino: str) -> float:
         """
         Obtiene la tasa de cambio desde `moneda_origen` hacia `moneda_destino` en una fecha específica.
 
@@ -35,7 +35,8 @@ class ConversorMoneda:
             print(f"Error obteniendo la tasa de cambio: {e}")
             return 1.0
 
-    def lista_monedas(self) -> dict:
+    @staticmethod
+    def lista_monedas() -> dict:
         """
         Devuelve un diccionario con el codigo ISO de cada
         pais, en el formato {Nombre de la moneda: Código ISO}.
